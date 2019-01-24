@@ -22,17 +22,16 @@ impl Philosopher {
 }
 
 fn main() {
-    let philosophers = vec![
-        Philosopher::new("Judith Butler"),
-        Philosopher::new("Gilles Deleuze"),
-        Philosopher::new("Karl Marx"),
-        Philosopher::new("Emma Goldman"),
-        Philosopher::new("Michel Foucault"),
+    let names = [
+        "Judith Butler",
+        "Gilles Deleuze",
+        "Karl Marx",
+        "Emma Goldman",
+        "Michel Foucault",
     ];
 
-    // for p in &philosophers {
-    //     p.eat()
-    // }
+    let philosophers = names.iter().map(|&n| Philosopher::new(&n));
+
     let handles: Vec<_> = philosophers
         .into_iter()
         .map(|p| {
